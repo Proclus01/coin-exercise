@@ -20,7 +20,7 @@ class Coin extends Component {
                         : 'none'
                     )
                     
-                    } alt=""></img>
+                    } alt="" />
             </div>
         );
     }
