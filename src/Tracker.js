@@ -11,6 +11,8 @@ class Tracker extends Component {
             tailsCount: 0,
             flipsCount: 0
         }
+
+        this.handleClick = this.handleClick.bind(this);
     }
 
     rng() {
@@ -23,17 +25,30 @@ class Tracker extends Component {
     }
 
     flip() {
-        const face = this.returnFace();
+        const newFace = this.returnFace();
 
+        this.setState(
+            oldState => {
+                return {
+                    face: newFace,
+                    flipsCount: oldState.flipsCount + 1,
+                    headsCount: oldState.headsCount + (newFace === 'heads' ? 1 : 0),
+                    tailsCount: oldState.tailsCount + (newFace === 'tails' ? 1 : 0)
+                }
+            }
+        )
+    }
 
+    handleClick(e) {
+        this.flip();
     }
 
     render() {
         return (
             <div>
                 <h1>Let's flip a coin!</h1>
-                <Coin face={this.returnFace()} />
-                <button>FLIP HERE</button>
+                <Coin face={this.state.face} />
+                <button onClick={this.handleClick}>FLIP HERE</button>
                 <p>Out of {this.state.flipsCount} flips, there have been {this.state.headsCount} heads and {this.state.tailsCount} tails.</p>
             </div>
         );
