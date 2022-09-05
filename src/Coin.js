@@ -15,7 +15,7 @@ class Coin extends Component {
             
             <div>
                 <img className="coin" src={
-                    ( this.props.face !== 'none' 
+                    ( this.props.face !== null 
                         ? (this.props.face === 'heads' ? this.heads : this.tails)
                         : 'none'
                     )

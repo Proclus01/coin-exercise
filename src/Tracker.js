@@ -6,7 +6,7 @@ class Tracker extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            face: 'none',
+            face: null,
             headsCount: 0,
             tailsCount: 0,
             flipsCount: 0
@@ -24,12 +24,17 @@ class Tracker extends Component {
 
     flip() {
         const face = this.returnFace();
+
+
     }
 
     render() {
         return (
             <div>
+                <h1>Let's flip a coin!</h1>
                 <Coin face={this.returnFace()} />
+                <button>FLIP HERE</button>
+                <p>Out of {this.state.flipsCount} flips, there have been {this.state.headsCount} heads and {this.state.tailsCount} tails.</p>
             </div>
         );
     }
