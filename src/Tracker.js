@@ -5,7 +5,7 @@ class Tracker extends Component {
     render() {
         return (
             <div>
-                <Coin />
+                <Coin face='heads' />
             </div>
         );
     }
