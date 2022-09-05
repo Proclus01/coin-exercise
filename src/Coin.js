@@ -11,11 +11,16 @@ class Coin extends Component {
     }
 
     render() {
-        console.log(this.props.heads)
         return (
             
             <div>
-                <img className="coin" src={(this.props.face === 'heads' ? this.heads : this.tails)} alt=""></img>
+                <img className="coin" src={
+                    ( this.props.face !== 'none' 
+                        ? (this.props.face === 'heads' ? this.heads : this.tails)
+                        : 'none'
+                    )
+                    
+                    } alt=""></img>
             </div>
         );
     }
